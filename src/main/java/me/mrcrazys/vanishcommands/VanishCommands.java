@@ -8,7 +8,11 @@ import org.mineacademy.fo.Valid;
 import org.mineacademy.fo.model.HookManager;
 import org.mineacademy.fo.plugin.SimplePlugin;
 
+import java.util.AbstractMap.SimpleEntry;
+import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * The main class for VanishCommands.
@@ -31,17 +35,29 @@ public final class VanishCommands extends SimplePlugin {
         Valid.checkBoolean(HookManager.isCMILoaded(), "VanishCommands requires CMI to run. Please purchase and install it from: https://www.spigotmc.org/resources/3742.");
 
         // Only register events if the plugin is enabled.
-        if (this.isEnabled()) {
-            // Use Optional to minimise the chance of NullPointerException.
-            final Boolean vanishEnabled = Optional.ofNullable(Settings.Vanish.enabled).orElse(true);
-            final Boolean unvanishEnabled = Optional.ofNullable(Settings.Unvanish.enabled).orElse(true);
+        Optional.of(this.isEnabled())
+                .filter(Boolean::booleanValue)
 
-            if (vanishEnabled)
-                this.registerEvents(VanishListener.getInstance());
+                // Create a stream with entries that have the state
+                // and corresponding listener instance.
+                .ifPresent(enabled -> Stream.of(
+                                new SimpleEntry<>(Settings.Unvanish.enabled, UnvanishListener.getInstance()),
+                                new SimpleEntry<>(Settings.Vanish.enabled, VanishListener.getInstance())
+                        )
 
-            if (unvanishEnabled)
-                this.registerEvents(UnvanishListener.getInstance());
-        }
+                        // Filter on the entries where the state is
+                        // not null and true. Defaults to false for
+                        // null values.
+                        .filter(entry -> Optional.ofNullable(entry.getKey()).orElse(false))
+
+                        // Map each entry to its value.
+                        .map(Entry::getValue)
+
+                        // Filter out null values.
+                        .filter(Objects::nonNull)
+
+                        // Register the events.
+                        .forEach(this::registerEvents));
     }
 
     /* ------------------------------------------------------------------------------- */
