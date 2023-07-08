@@ -1,0 +1,82 @@
+# !-----------------------------------------------------------------------------------------------!
+#                       Welcome to the main configuration of ${project.name}
+# !-----------------------------------------------------------------------------------------------!
+#
+#    1) COLOR CODES are supported with the '&' character.
+#       - For usage, see http://minecraftwiki.net/wiki/Formatting_codes
+#       - When you use them, place quotes around the message like this: "Hello &cworld."
+#       - To use HEX colors, use {#123456} syntax: "Hello {#123456}world."
+#
+#    2) TO HIDE any message, set it to 'none'.
+#
+#    PS: Everything above applies for all files in ${project.name}/ folder.
+#
+# !-----------------------------------------------------------------------------------------------!
+
+# -------------------------------------------------------------------------------------------------
+# Settings related to vanish
+# -------------------------------------------------------------------------------------------------
+Vanish:
+
+  # Should the vanish commands be performed?
+  Enabled: true
+
+  # The commands to perform when a player vanishes. Specialized commands are supported. See
+  # https://www.zrips.net/cmi/commands/specialized/ for information on how to use them.
+  Commands:
+    - "asConsole! cmi gm spectator [playerName] -s"
+    - "msg! [playerName] {#gold}Your location: {location}."
+    - "msg! [playerName] {#orange}The time is: {timestamp}."
+
+# -------------------------------------------------------------------------------------------------
+# Settings related to unvanish
+# -------------------------------------------------------------------------------------------------
+Unvanish:
+
+  # Should the unvanish commands be performed?
+  Enabled: true
+
+  # The commands to perform when a player unvanishes. Specialized commands are supported. See
+  # https://www.zrips.net/cmi/commands/specialized/ for information on how to use them.
+  Commands:
+    - "asConsole! cmi gm creative [playerName] -s"
+    - "asConsole! cmi heal [playerName] -s"
+    - "asConsole! cmi effect [playerName] clear -s"
+    - "msg! [playerName] {#red>}You have unvanished.{#corn<}"
+
+# -------------------------------------------------------------------------------------------------
+# The formats used in the {timestamp} and {location} variables. For help with timestamp, see:
+# https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
+# -------------------------------------------------------------------------------------------------
+Timestamp_Format: "dd/MM/yyyy HH:mm:ss"
+Location_Format: "{world} [{x}, {y}, {z}]"
+
+# -------------------------------------------------------------------------------------------------
+# What commands should trigger the main command?
+#
+# * THE FIRST ALIAS IS THE MAIN LABEL, YOU CAN CHANGE IT BUT DO NOT REMOVE IT. *
+# -------------------------------------------------------------------------------------------------
+Command_Aliases: [ vanishcommands, vc, vanishcmds ]
+
+# -------------------------------------------------------------------------------------------------
+# What language should we use for messages? If it exists, the language file will be copied
+# to your localization/ folder where you can edit it.
+# -------------------------------------------------------------------------------------------------
+Locale: en
+
+# -------------------------------------------------------------------------------------------------
+# The prefix used in front of most chat or console messages. You can manually use it with
+# the {plugin_prefix} variable anywhere.
+# -------------------------------------------------------------------------------------------------
+Prefix: "&8[&c${project.name}&8]&7 "
+
+# -------------------------------------------------------------------------------------------------
+# The time of some of the plugin's operations is measured. A message will be printed to the console
+# if they take more than the specified amount of time in milliseconds. Set to -1 to disable.
+# -------------------------------------------------------------------------------------------------
+Log_Lag_Over_Milis: 100
+
+# -------------------------------------------------------------------------------------------------
+# Do not change this value, otherwise it will corrupt your plugin installation!
+# -------------------------------------------------------------------------------------------------
+Version: 1

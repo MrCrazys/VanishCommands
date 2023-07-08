@@ -1,0 +1,93 @@
+# !-----------------------------------------------------------------------------------------------!
+#                              Welcome to the localization file.
+# !-----------------------------------------------------------------------------------------------!
+#
+#   Here you can customize almost every message sent by the plugin.
+#
+#   1) COLOR CODES are supported with the '&' character.
+#      - For usage, see http://minecraftwiki.net/wiki/Formatting_codes.
+#      - When you use them, place quotes around the message like this: "Hello &cworld.".
+#      - To use HEX colors, use {#123456} syntax: "Hello #123456world.".
+#
+#   2) TO HIDE any message, set it to 'none'.
+#
+# !-----------------------------------------------------------------------------------------------!
+
+# -------------------------------------------------------------------------------------------------
+# Messages related to commands
+# -------------------------------------------------------------------------------------------------
+Commands:
+  # true = https://i.imgur.com/us88BCT.png
+  # false = https://i.imgur.com/N7jLu7v.png
+  Simple_Help_Design: false
+  Error: "&4&lOops! &cThe command failed :( Check the console and report the error."
+  Header_No_Subcommands: "&cThere are no arguments for this command."
+  Header_No_Subcommands_Permission: "&cYou don't have permissions to view any subcommands."
+  Header_Color: GOLD
+  Header_Secondary_Color: RED
+  Reloading: "reloading"
+  Disabled: "disabled"
+  Use_While_Null: "&cCannot use this command while the plugin is {state}."
+  Incompatible: "This command requires Minecraft {0} or greater."
+  Use_Alternative_Header: false
+  Alternative_Header: "&c{plugin_name}: &7Type '/{0} ?' to see all commands."
+  Invalid_Argument: "&cInvalid argument. Run &6/{label} ? &cfor help."
+  Invalid_Sub_Argument: "&cInvalid argument. Run '/{label} {0}' for help."
+  Invalid_Argument_Multiline: "&cInvalid argument. Usage:"
+  Label_Authors: "Made by"
+  Label_Description: "&c&lDescription:"
+  Label_Optional_Args: "optional arguments"
+  Label_Required_Args: "required arguments"
+  Label_Usages: "&c&lUsages:"
+  Label_Usage: "&c&lUsage:"
+  Label_Help_For: "Help for /{label}"
+  Label_Subcommand_Description: " &f/{label} {sublabel} {usage+}{dash+}{description}"
+  Help_Tooltip_Description: "&7Description: &f{description}"
+  Help_Tooltip_Permission: "&7Permission: &f{permission}"
+  Help_Tooltip_Usage: "&7Usage: &f"
+  Reload_Description: "Reload the configuration."
+  Reload_Started: "Reloading plugin's data, please wait.."
+  Reload_Success: "&6{plugin_name} {plugin_version} has been reloaded."
+  Reload_Fail: "&4Oops, &creloading failed! See the console for more information. Error: {error}"
+  Reload_File_Load_Error: "&4Oops, &cthere was a problem loading files from your disk! See the console for more information. {plugin_name} has not been reloaded."
+  Debug_Description: "ZIP your settings for reporting bugs."
+  Debug_Preparing: "&6Preparing debug log..."
+  Debug_Success: "&2Successfully copied {amount} file(s) to debug.zip. Please upload it via ufile.io and send it to us for review."
+  Debug_Copy_Fail: "&cCopying files failed on file {file} and it was stopped. See console for more information."
+  Debug_Zip_Fail: "&cCreating a ZIP of your files failed, see console for more information. Please ZIP debug/ folder and send it to us via ufile.io manually."
+
+# -------------------------------------------------------------------------------------------------
+# Words for both singular and plural form. Separate these two forms with ", "
+# -------------------------------------------------------------------------------------------------
+Cases:
+  Second: second, seconds
+  Message: message, messages
+  Command: command, commands
+
+# -------------------------------------------------------------------------------------------------
+# Different prefixes you can use by calling {prefix_<type>} such as {prefix_info}
+# -------------------------------------------------------------------------------------------------
+Prefix:
+  Info: "&8&l[&9&li&8&l]&7 "
+  Success: "&8&l[&2&l!&8&l]&7 "
+  Warn: "&8&l[&6&l!&8&l]&6 "
+  Error: "&8&l[&4&lX&8&l]&c "
+  Question: "&8&l[&a&l?&l&8]&7 "
+  Announce: "&8&l[&5&l!&l&8]&d "
+
+# -------------------------------------------------------------------------------------------------
+# Miscellaneous
+# -------------------------------------------------------------------------------------------------
+None: "None"
+Server_Prefix: "[Server]"
+Console_Name: "Console"
+
+# -------------------------------------------------------------------------------------------------
+# Messages shown when a player runs a command they lack permission for
+# -------------------------------------------------------------------------------------------------
+No_Permission: "&cNo permission: {permission}"
+
+# -------------------------------------------------------------------------------------------------
+# Internal versioning number
+# -------------------------------------------------------------------------------------------------
+Version: 1

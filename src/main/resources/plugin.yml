@@ -1,0 +1,27 @@
+#
+# Stores some information about the plugin such as its
+# name, author, version, and dependencies.
+# 
+name: ${project.name}
+version: ${project.version}
+main: ${main.class}
+author: ${author}
+
+# API version 1.13 is used for maximum backwards compatibility.
+api-version: 1.13
+
+# Load the following libraries
+libraries:
+  # Nashorn is required to make the plugin work on older Java versions.
+  - org.openjdk.nashorn:nashorn-core:15.4
+
+# Same as libraries, but only works on Minecraft 1.16 and below.
+#legacy-libraries:
+
+# CMI is required for the plugin to run.
+depend: [ CMI ]
+
+#
+# The commands are built at runtime so that they can easily be changed within the settings.
+#
+commands:  
