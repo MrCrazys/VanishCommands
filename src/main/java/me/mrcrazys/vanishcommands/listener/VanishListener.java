@@ -53,17 +53,6 @@ public final class VanishListener extends SimpleListener<@NotNull CMIPlayerVanis
                 .map(command -> Variables.replace(command, player))
                 .collect(Collectors.toList());
 
-        /*Optional.ofNullable(Settings.Vanish.commands)
-                .orElse(Collections.emptyList())
-                .stream()
-                .map()*/
-
-        /*for (final String command : Optional.ofNullable(Settings.Vanish.commands).orElse(Collections.emptyList())) {
-            final String updated = CMI.getInstance().getLM().updateSnd(snd, command);
-
-            commands.add(updated);
-        }*/
-
         // Process vanish commands from settings.yml.
         if (!commands.isEmpty())
             CMI.getInstance().getSpecializedCommandManager().processCmds("VanishCommands-Vanish", commands, player);
