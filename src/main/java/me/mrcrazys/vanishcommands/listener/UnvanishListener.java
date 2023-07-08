@@ -47,13 +47,22 @@ public final class UnvanishListener extends SimpleListener<@NotNull CMIPlayerUnV
                 .setTarget(player);
 
         final List<String> commands = Optional.ofNullable(Settings.Unvanish.commands)
+                // Return an empty list if the unvanish commands don't exist.
                 .orElse(Collections.emptyList())
+
+                // Turn the commands into a stream.
                 .stream()
+
+                // Replace variables such as [playerName] in the command.
                 .map(command -> CMI.getInstance().getLM().updateSnd(snd, command))
+
+                // Replace hardcoded variables like {location} in the command.
                 .map(command -> Variables.replace(command, player))
+
+                // Collect the updated values into a list.
                 .collect(Collectors.toList());
 
-        // Process unvanish commands from settings.yml.
+        // Process the unvanish commands.
         if (!commands.isEmpty())
             CMI.getInstance().getSpecializedCommandManager().processCmds("VanishCommands-Unvanish", commands, player);
     }
